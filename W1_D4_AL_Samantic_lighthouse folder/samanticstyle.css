@@ -1,0 +1,25 @@
+
+body{
+
+	margin: 5px;
+	!border:solid;
+	padding:5px;
+	background:orange;
+
+}
+
+h1
+{
+background: yellow;
+font-weight: 50;
+}
+
+p
+
+{
+	display: grid;
+	grid-template-columns: 500px 500px;
+	grid-template-rows: 250px 250px;
+	grid-gap:5px;
+}
+
