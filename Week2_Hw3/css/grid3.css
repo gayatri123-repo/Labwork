@@ -1,0 +1,25 @@
+
+#entirepageparent
+{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows:repeat(3, 1fr);
+  grid-column-gap: 0px;
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/455884/cat.jpg');
+}
+
+.dot {
+  height: 275px;
+  width: 450px;
+  background-color: blue;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot:hover {
+  height: 0;
+  width: 0;
+  background-color: blue;
+  border-radius: 0%;
+  display: inline-block;
+}

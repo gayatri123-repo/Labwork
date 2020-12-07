@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>WEEK2HW3PROB1</title>
+		 <link rel="stylesheet" type="text/css" href="../css/grid3.css">
+	</head>
+
+	<body >
+
+		<div id="entirepageparent">
+
+				 <div class="dot" id='1'></div>
+				 <div class="dot" id='2'></div>
+				 <div class="dot" id='3'></div>
+				 <div class="dot" id='4'></div>
+				 <div class="dot" id='5'></div>
+				 <div class="dot" id='6'></div>
+				 <div class="dot" id='7'></div>
+				 <div class="dot" id='8'></div>
+				 <div class="dot" id='9'></div>
+		 </div>
+
+<script>
+
+document.getElementById("entirepageparent").addEventListener("click", changecolor);
+
+function sleep(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
+	}
+
+async function changecolor()
+{
+	var colors = ["orange", "green", "red", "yellow"];
+	var currentColor = 0;
+	for(currentColor=0;currentColor <= 3;currentColor++)
+	{
+	document.getElementById("1").style.backgroundColor = colors[currentColor];
+	document.getElementById("2").style.backgroundColor = colors[currentColor];
+	document.getElementById("3").style.backgroundColor = colors[currentColor];
+	document.getElementById("4").style.backgroundColor = colors[currentColor];
+	document.getElementById("5").style.backgroundColor = colors[currentColor];
+	document.getElementById("6").style.backgroundColor = colors[currentColor];
+	document.getElementById("7").style.backgroundColor = colors[currentColor];
+	document.getElementById("8").style.backgroundColor = colors[currentColor];
+	document.getElementById("9").style.backgroundColor = colors[currentColor];
+
+	await sleep(2000);
+  }
+
+}
+</script>
+
+		 </body>
+</html>

@@ -1,0 +1,68 @@
+
+<html lang="en" dir="ltr">
+  <head> <! this element contains all the metadata (documents,style sheet,links,scripts) to related to this page>
+    <meta charset="utf-8">
+    <title>CLOCK</title>
+    <link rel="stylesheet" type="text/css" href="../css/clock.css"> <!we are getting css file link using link element.>
+  </head>
+
+  <body>
+
+    <p> Timer </p> <! para in the page.>
+
+    <div id="blueclock"><!It's a blue cirle in the Html sheet. It contains showtime textbox.>
+
+      <input id='showtime' type="text" align = "center" value="00:00" onkeypress="clockTimer(event)">
+      <! It's input box in html. we can enter
+//text here(for this program time(int))
+// blueclock and showtime are in same div.method.>
+    </div>
+
+    <script type="text/javascript"> // javascript starts here. using script element for clock page.
+
+    document.getElementById("showtime").addEventListener("click", resetTimer);// in this step we are calling showtime
+    var i = 0;//variable initial of i,seccount,mincount.these are universal variables.
+    var seccount = 0;
+    var mincount = 0;
+
+  function resetTimer()//what to work in resetTimer.we wrote aprogram.
+  {
+    i = 0;//these variables are local for resetTime function.(i,seccount).
+    seccount = 60;
+    mincount = 0;
+    document.getElementById("showtime").value = "00";
+  }
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
+      async function  clockTimer(event)
+      {
+        var eve = event.code;
+        if (eve == 'Enter')
+        {
+        i = Number(document.getElementById('showtime').value);
+        seccount = 0;
+        mincount = 0;
+
+        while (i > 0)
+        {
+         while (seccount <= 59)
+          {
+            document.getElementById("showtime").value = String(mincount).padStart(2,'0') + ":" + String(seccount).padStart(2,'0');
+            seccount ++;
+            await sleep(250);
+          }
+        seccount = 0;
+        mincount++;
+        document.getElementById("showtime").value = String(mincount).padStart(2,'0') + ":" + String(seccount).padStart(2,'0');
+        i--;
+        }
+        document.getElementById("showtime").value = "00";
+       }
+      }
+
+    </script>
+    </body>
+</html>

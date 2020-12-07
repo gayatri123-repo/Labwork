@@ -1,0 +1,85 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CLOCK</title>
+    <link rel="stylesheet" type="text/css" href="../css/clock.css">
+  </head>
+
+  <body>
+
+    <p> Timer </p>
+
+    <div id="blueclock">
+
+      <input id='mintime' type="text" align = "center" value="00" onkeypress="focussecbox(event)">
+
+      <p id="dots">  :  </p>
+
+      <input id='sectime' type="text" align = "center" value="00" onkeypress="clockTimer(event)">
+
+
+    </div>
+
+    <script type="text/javascript">
+
+    var i = 0;
+    var seccount = 0;
+    var mincount = 0;
+    var j = 0;
+
+
+    function focussecbox(event)
+    {
+      var eve2 = event.code;
+      if (eve2 == 'Enter')
+      {
+     document.getElementById("sectime").focus();
+    }
+  }
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
+      async function  clockTimer(event)
+      {
+        var eve = event.code;
+        if (eve == 'Enter')
+        {
+        i = Number(document.getElementById('mintime').value);
+        j = Number(document.getElementById('sectime').value);
+
+        seccount = 0;
+        mincount = 0;
+
+        while (i > 0)
+        {
+         while (seccount <= 59)
+          {
+            document.getElementById("mintime").value = String(mincount).padStart(2,'0'); //+ ":" +
+            document.getElementById("sectime").value = String(seccount).padStart(2,'0');
+            seccount ++;
+            await sleep(250);
+          }
+        seccount = 0;
+        mincount++;
+        document.getElementById("mintime").value = String(mincount).padStart(2,'0');//+ ":" +
+        document.getElementById("sectime").value = String(seccount).padStart(2,'0');
+        i--;
+        }
+
+        while (j>=0)
+        {
+
+        document.getElementById("mintime").value = String(mincount).padStart(2,'0'); //+ ":" +
+        document.getElementById("sectime").value = String(seccount).padStart(2,'0');
+        seccount ++;
+        j--;
+        await sleep(250);
+        }
+       }
+      }
+
+    </script>
+    </body>
+</html>
